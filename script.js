@@ -6,5 +6,7 @@ fetch(file)
     .then(data => init(data));
 
 function init(json) {
-    
+    const H1 = document.createElement("h1");
+    H1.textContent=json["name"];
+    header.appendChild(H1)
 }
