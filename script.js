@@ -11,6 +11,9 @@ fetch(file)
 function init(json) {
 
     // Header
+    const H1 = document.createElement("h1");
+    H1.textContent=json["name"];
+    header.appendChild(H1)
 
 
 
