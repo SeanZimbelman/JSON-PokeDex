@@ -20,14 +20,18 @@ function init(json) {
     // Section
     if (true) {
         const STATS = document.createElement('article');
+        const STATSDIV = document.createElement('div');
         if (true) {
             const H2 = document.createElement('h2');
 
             H2.textContent = `Stats`;
+            STATSDIV.id = 'div';
 
             STATS.appendChild(H2);
+            STATS.appendChild(STATSDIV);
         }
         for (stat of json['stats']) {
+            const DIV = document.createElement('div');
             const H3 = document.createElement('h3');
             const P1 = document.createElement('p');
             const P2 = document.createElement('p');
@@ -36,9 +40,12 @@ function init(json) {
             P1.textContent = `Base stat: ${stat['base_stat']}`;
             P2.textContent = `Effort: ${stat['effort']}`;
 
-            STATS.appendChild(H3);
-            STATS.appendChild(P1);
-            STATS.appendChild(P2);
+            DIV.appendChild(H3);
+            DIV.appendChild(P1);
+            DIV.appendChild(P2);
+
+            STATSDIV.appendChild(DIV);
+            STATS.appendChild(STATSDIV);
 
             STATS.id = 'stats'
 

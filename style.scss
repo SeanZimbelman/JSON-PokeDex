@@ -1,0 +1,56 @@
+$TextColor: #fff8;
+$HColor: #ff4875;
+$BColor: #0007;
+$Border: $BColor 2px solid;
+$Background: #EFB561;
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    color: $TextColor;
+    background-color: $Background;
+}
+
+H1,
+H2,
+H3 {
+    color: $HColor;
+    text-transform: uppercase;
+}
+
+#section {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    #stats {
+        text-align: center;
+        H2{
+            font-size: 50px;
+        }
+        div#div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            div {
+                border: $Border;
+                padding: 5px;
+                H3 {
+                    text-decoration: underline;
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
