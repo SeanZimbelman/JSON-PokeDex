@@ -16,9 +16,9 @@ function init(json) {
         header.appendChild(H1);
 
         //create the subheader
-        const H1 = document.createElement("Id");
-        Id.textContent = json["base_experience"];
-        Id.appendChild(Id);
+        const P1 = document.createElement("p");
+        P1.textContent = `Base Experience: ${json["base_experience"]}`;
+        header.appendChild(P1);
 
 
     }
