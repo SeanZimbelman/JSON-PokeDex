@@ -12,16 +12,15 @@ function init(json) {
     // Header
     if (true) {
         const H1 = document.createElement("h1");
-        H1.textContent=json["name"];
+        H1.textContent = json["name"];
         header.appendChild(H1);
-    
+
         //create the subheader
         const H1 = document.createElement("Id");
-        Id.textContent=json["base_experience"];
+        Id.textContent = json["base_experience"];
         Id.appendChild(Id);
-    
-    
-    }
+
+
     }
 
     // Section
@@ -105,8 +104,8 @@ function init(json) {
             const P1 = document.createElement('p');
             const P2 = document.createElement('p');
 
-            P1.textContent = `Weight: ${json['weight']/10}kg`;
-            P2.textContent = `Height: ${json['height']/10}m`;
+            P1.textContent = `Weight: ${json['weight'] / 10}kg`;
+            P2.textContent = `Height: ${json['height'] / 10}m`;
 
             section.appendChild(P1);
             section.appendChild(P2);
