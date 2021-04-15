@@ -10,7 +10,7 @@ fetch(file)
 
 function init(json) {
     // Deconstruct
-    const { base_experience, height, id, name, stats, types, abilities,  ...otherObj } = json
+    const { base_experience, id, name, stats, types, abilities,  ...otherObj } = json
     // Header
     if (true) {
         const H1 = document.createElement("h1");
@@ -44,7 +44,16 @@ function init(json) {
             const P1 = document.createElement('p');
             const P2 = document.createElement('p');
 
-            H3.textContent = stat['stat']['name'];
+            let name = stat['stat']['name'];
+            name = name.split('-');
+            for(p in name){
+                if(name[p] == 'special'){
+                    name[p] = 'Sp'
+                }
+            }
+            name = name.join('-');
+
+            H3.textContent = name;
             P1.textContent = `Base stat: ${stat['base_stat']}`;
             P2.textContent = `Effort: ${stat['effort']}`;
 
@@ -70,16 +79,19 @@ function init(json) {
         for (type of types) {
             const H3 = document.createElement('h3');
             const P = document.createElement('p');
+            const DIV = document.createElement('div');
 
             let slot = '';
             if (type['slot'] == 1) { slot = 'primary' } else { slot = 'secondary' };
             H3.textContent = slot;
             P.textContent = type['type']['name'];
+            DIV.classList.add(`${type['type']['name']}`)
 
             TYPES.appendChild(H3);
-            TYPES.appendChild(P);
+            DIV.appendChild(P);
+            TYPES.appendChild(DIV);
 
-            TYPES.id = 'types'
+            TYPES.id = 'types';
 
             section.appendChild(TYPES);
         }
