@@ -14,6 +14,21 @@ function init(json) {
     // Header
     if (true) {
         const H1 = document.createElement("h1");
+        // H1.textContent=json["name"];
+        H1.textContent = json.name
+        header.appendChild(H1);
+    
+        const PARA = document.createElement("p");
+        PARA.textContent = `base_experience: ${json["base_experience"]} || Formed: ${json[formed]} || `
+        //create the subheader
+        const H1 = document.createElement("Id");
+        Id.textContent=json["base_experience"];
+        Id.appendChild(Id);
+        
+        const H1 
+    
+    
+    }
         H1.textContent = name;
         header.appendChild(H1);
 
