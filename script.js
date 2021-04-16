@@ -13,21 +13,36 @@ function init(json) {
     const { base_experience, id, name, stats, types, abilities,  ...otherObj } = json
     // Header
     if (true) {
-        const H1 = document.createElement("h1");
+        function createHeader(json){
+            const H1 = document.createElement("h1");
         // H1.textContent=json["name"];
         H1.textContent = json.name
         header.appendChild(H1);
-    
-        const PARA = document.createElement("p");
-        PARA.textContent = `base_experience: ${json["base_experience"]} || Formed: ${json[formed]} || `
-        //create the subheader
+
         const H1 = document.createElement("Id");
         Id.textContent=json["base_experience"];
         Id.appendChild(Id);
+        const H1 = document.createElement("p");
+
+        const PARA = document.createElement("p");
+        PARA.textContent = `base_experience: ${json["base_experience"]} || Formed: ${json[formed]} || `
+        //create the subheader
+
+        const PARA = document.createElement("p");
+        PARA.textContent = `id: ${json["id"]} || Formed: ${json[formed]} || `
+
+        const PARA = document.createElement("p");
+        PARA.textContent = `name: ${json["name"]} || Formed: ${json[formed]} || `
+
+        const PARA = document.createElement("p");
+        PARA.textContent = `stats: ${json["stats"]} || Formed: ${json[formed]} || `
         
-        const H1 
-    
-    
+        const PARA = document.createElement("p");
+        PARA.textContent = `is_default: ${json["is_default"]} || Formed: ${json[formed]} || `
+        
+        const PARA = document.createElement("p");
+        PARA.textContent = `order: ${json["order"]} || Formed: ${json[formed]} || `
+        }       
     }
         H1.textContent = name;
         header.appendChild(H1);
