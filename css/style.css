@@ -8,26 +8,14 @@
 }
 
 body {
-  color: #fff8;
-  background-color: #808080;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  background: #000A top right no-repeat;
-  background-size: cover;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  z-index: -1;
+  color: #000;
+  background-color: #fff;
 }
 
 H1,
 H2,
 H3 {
-  color: #ff4875;
+  color: #f00;
   text-transform: uppercase;
 }
 
@@ -36,6 +24,42 @@ H3 {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+#section #info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: #000 2.5px solid;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+#section #info #types {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 165px;
+}
+
+#section #info #types h2,
+#section #info #types h3 {
+  display: none;
+}
+
+#section #info #types div {
+  border: #000 2.5px solid;
+  width: 75px;
+  height: fit-content;
+  border-radius: 0.75rem;
+}
+
+#section #info #types div p {
+  font-size: 20px;
+  text-align: center;
+  color: #000;
 }
 
 #section #stats {
@@ -54,7 +78,8 @@ H3 {
 }
 
 #section #stats div#div div {
-  border: #0007 2.5px solid;
+  border: #000 2.5px solid;
+  border-radius: 5px;
   padding: 5px;
 }
 
@@ -67,29 +92,13 @@ H3 {
   font-size: 20px;
 }
 
-#section #types {
+#section #abilites {
+  margin: 20px;
+  margin-bottom: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-}
-
-#section #types h2,
-#section #types h3 {
-  display: none;
-}
-
-#section #types div {
-  border: #0007 2.5px solid;
-  margin-top: 15px;
-  width: 75px;
-  height: fit-content;
-  border-radius: 0.75rem;
-}
-
-#section #types div p {
-  font-size: 20px;
-  text-align: center;
-  color: #000a;
+  justify-content: space-between;
+  width: 400px;
 }
 
 .normal {

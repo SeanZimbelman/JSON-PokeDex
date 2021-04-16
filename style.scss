@@ -1,8 +1,8 @@
-$TextColor: #fff8;
-$HColor: #ff4875;
-$BColor: #0007;
+$TextColor: #000;
+$HColor: #f00;
+$BColor: #000;
 $Border: $BColor 2.5px solid;
-$Background: #808080;
+$Background: #fff;
 
 *,
 *::after,
@@ -16,18 +16,6 @@ $Background: #808080;
 body {
     color: $TextColor;
     background-color: $Background;
-
-    &::before {
-        content: "";
-        position: fixed;
-        background: #000A top right no-repeat;
-        background-size: cover;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        z-index: -1;
-    }
 }
 
 H1,
@@ -43,6 +31,39 @@ H3 {
     display: flex;
     flex-direction: column;
 
+    #info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border: $Border;
+        border-radius: 5px;
+        width: 80%;
+        margin: 0 auto;
+        padding: 5px;
+
+        #types {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            min-width: 165px;
+            h2,
+            h3 {
+                display: none;
+            }
+            div {
+                border: $Border;
+                width: 75px;
+                height: fit-content;
+                border-radius: 0.75rem;
+                p {
+                    font-size: 20px;
+                    text-align: center;
+                    color: #000;
+                }
+            }
+        }
+    }
+
     #stats {
         text-align: center;
         H2 {
@@ -55,6 +76,7 @@ H3 {
             flex-wrap: wrap;
             div {
                 border: $Border;
+                border-radius: 5px;
                 padding: 5px;
                 H3 {
                     text-decoration: underline;
@@ -66,26 +88,13 @@ H3 {
             }
         }
     }
-    #types {
+    #abilites{
+        margin: 20px;
+        margin-bottom: 0;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
-        h2,
-        h3 {
-            display: none;
-        }
-        div {
-            border: $Border;
-            margin-top: 15px;
-            width: 75px;
-            height: fit-content;
-            border-radius: 0.75rem;
-            p {
-                font-size: 20px;
-                text-align: center;
-                color: #000a;
-            }
-        }
+        justify-content: space-between;
+        width: 400px;
     }
 }
 
