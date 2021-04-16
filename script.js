@@ -8,19 +8,40 @@ fetch(file)
     .then(response => response.json())
     .then(data => init(data));
 
+file = file.split('.json').join('')
+
 function init(json) {
     // Deconstruct
-    const { base_experience, id, name, stats, types, abilities, ...otherObj } = json
+    const { base_experience, order, name, stats, types, abilities, ...otherObj } = json
     // Header
     if (true) {
-        const H1 = document.createElement("h1");
-        H1.textContent = name
-        header.appendChild(H1);
+        const DIV1 = document.createElement('div');
+        DIV1.id = 'info';
+        const DIV2 = document.createElement('div');
+        DIV2.id= 'img';
 
-        //create the subheader
+
+        const H1 = document.createElement("h1");
+        // H1.textContent=json["name"];
+        H1.textContent = json.name
+
         const P1 = document.createElement("p");
-        P1.textContent = `Base Experience: ${base_experience}`;
-        header.appendChild(P1);
+        P1.textContent = `Base Experience: ${base_experience}`
+        P1.id = 'exp';
+
+        const P2 = document.createElement("p");
+        P2.textContent = `Order: ${order}`
+        P2.id = 'order';
+
+        const IMG = document.createElement('img');
+        IMG.src = `images/${file}.jpg`
+
+        DIV1.appendChild(H1);
+        DIV1.appendChild(P1);
+        DIV1.appendChild(P2);
+        DIV2.appendChild(IMG)
+        header.appendChild(DIV1);
+        header.appendChild(DIV2);
     }
 
     // Section
@@ -41,34 +62,38 @@ function init(json) {
             section.appendChild(INFO);
 
             const TYPES = document.createElement('article');
-        if (true) {
-            const H2 = document.createElement('h2');
+            const DIV1 = document.createElement('div');
+            const DIV2 = document.createElement('div');
+            if (true) {
+                const H2 = document.createElement('h2');
 
-            H2.textContent = `Type`;
+                H2.textContent = `Type`;
+                DIV1.id = 'row-1';
+                DIV2.id = 'row-2';
 
-            TYPES.appendChild(H2);
-        }
-        for (type of types) {
-            const H3 = document.createElement('h3');
-            const P = document.createElement('p');
-            const DIV = document.createElement('div');
+                TYPES.appendChild(H2);
+            }
+            for (type of types) {
+                const H3 = document.createElement('h3');
+                const P = document.createElement('p');
+                const DIV = document.createElement('div');
 
-            let slot = '';
-            if (type['slot'] == 1) { slot = 'primary' } else { slot = 'secondary' };
-            H3.textContent = slot;
-            P.textContent = type['type']['name'];
-            DIV.classList.add(`${type['type']['name']}`)
+                let slot = '';
+                if (type['slot'] == 1) { slot = 'primary' } else { slot = 'secondary' };
+                H3.textContent = slot;
+                P.textContent = type['type']['name'];
+                DIV.classList.add(`${type['type']['name']}`)
 
-            TYPES.appendChild(H3);
-            DIV.appendChild(P);
-            TYPES.appendChild(DIV);
+                TYPES.appendChild(H3);
+                DIV.appendChild(P);
+                TYPES.appendChild(DIV);
 
-            TYPES.id = 'types';
+                TYPES.id = 'types';
 
-            INFO.appendChild(TYPES);
+                INFO.appendChild(TYPES);
 
-            section.appendChild(INFO);
-        }
+                section.appendChild(INFO);
+            }
         }
         const STATS = document.createElement('article');
         const STATSDIV = document.createElement('div');
@@ -125,7 +150,7 @@ function init(json) {
 
             count++;
             let separator = '';
-            if(count != Object.keys(abilities).length){separator = ','}
+            if (count != Object.keys(abilities).length) { separator = ',' }
 
 
             P.textContent = `${ability['name']}${separator}`;
@@ -138,3 +163,4 @@ function init(json) {
         }
     }
 }
+

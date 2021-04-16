@@ -19,6 +19,30 @@ H3 {
   text-transform: uppercase;
 }
 
+#header {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+#header div#info {
+  border: #000 2.5px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#header div#info p {
+  text-align: center;
+  margin: auto 10px;
+}
+
+#header div#img {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
 #section {
   width: 80%;
   margin: 0 auto;

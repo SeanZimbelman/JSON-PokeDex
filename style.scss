@@ -25,6 +25,30 @@ H3 {
     text-transform: uppercase;
 }
 
+#header{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5px;
+
+    div#info{
+        border: $Border;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        p{
+            text-align: center;
+            margin: auto 10px;
+        }
+    }
+
+    div#img{
+        width: 200px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+}
+
 #section {
     width: 80%;
     margin: 0 auto;
