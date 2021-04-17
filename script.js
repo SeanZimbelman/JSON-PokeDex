@@ -18,7 +18,7 @@ function init(json) {
         const DIV1 = document.createElement('div');
         DIV1.id = 'info';
         const DIV2 = document.createElement('div');
-        DIV2.id= 'img';
+        DIV2.id = 'img';
 
 
         const H1 = document.createElement("h1");
@@ -30,11 +30,11 @@ function init(json) {
         P1.id = 'exp';
 
         const P2 = document.createElement("p");
-        P2.textContent = `Order: ${order}`
+        P2.textContent = `(${order})`
         P2.id = 'order';
 
         const IMG = document.createElement('img');
-        IMG.src = `images/${file}.jpg`
+        IMG.src = `images/${file}.png`
 
         DIV1.appendChild(H1);
         DIV1.appendChild(P1);
@@ -62,14 +62,10 @@ function init(json) {
             section.appendChild(INFO);
 
             const TYPES = document.createElement('article');
-            const DIV1 = document.createElement('div');
-            const DIV2 = document.createElement('div');
             if (true) {
                 const H2 = document.createElement('h2');
 
                 H2.textContent = `Type`;
-                DIV1.id = 'row-1';
-                DIV2.id = 'row-2';
 
                 TYPES.appendChild(H2);
             }
@@ -97,16 +93,29 @@ function init(json) {
         }
         const STATS = document.createElement('article');
         const STATSDIV = document.createElement('div');
+        const DIV1 = document.createElement('div');
+        const DIV2 = document.createElement('div');
         if (true) {
             const H2 = document.createElement('h2');
 
             H2.textContent = `Stats`;
             STATSDIV.id = 'div';
+            STATS.id = 'stats';
+            DIV1.id = 'row';
+            DIV2.id = 'row';
 
             STATS.appendChild(H2);
+            STATSDIV.appendChild(DIV1);
+            STATSDIV.appendChild(DIV2);
             STATS.appendChild(STATSDIV);
         }
+        let count = 0;
         for (stat of stats) {
+            count++
+
+            let check = false;
+            if (count > 3) { check = true }
+
             const DIV = document.createElement('div');
             const H3 = document.createElement('h3');
             const P1 = document.createElement('p');
@@ -118,6 +127,12 @@ function init(json) {
                 if (name[p] == 'special') {
                     name[p] = 'Sp'
                 }
+                if(name[p] == 'attack') {
+                    name[p] = 'atk'
+                }
+                if(name[p] == 'defense') {
+                    name[p] = 'def'
+                }
             }
             name = name.join('-');
 
@@ -125,16 +140,34 @@ function init(json) {
             P1.textContent = `Base stat: ${stat['base_stat']}`;
             P2.textContent = `Effort: ${stat['effort']}`;
 
-            DIV.appendChild(H3);
-            DIV.appendChild(P1);
-            DIV.appendChild(P2);
+            if (check) {
+                DIV.appendChild(H3);
+                DIV.appendChild(P1);
+                DIV.appendChild(P2);
+                DIV1.appendChild(DIV);
+                STATSDIV.appendChild(DIV1);
+                STATS.appendChild(STATSDIV);
+                section.appendChild(STATS);
+            } else {
+                DIV.appendChild(H3);
+                DIV.appendChild(P1);
+                DIV.appendChild(P2);
+                DIV2.appendChild(DIV);
+                STATSDIV.appendChild(DIV1);
+                STATS.appendChild(STATSDIV);
+                section.appendChild(STATS);
+            }
 
-            STATSDIV.appendChild(DIV);
-            STATS.appendChild(STATSDIV);
+            // DIV.appendChild(H3);
+            // DIV.appendChild(P1);
+            // DIV.appendChild(P2);
 
-            STATS.id = 'stats'
+            // STATSDIV.appendChild(DIV);
+            // STATS.appendChild(STATSDIV);
 
-            section.appendChild(STATS);
+            // STATS.id = 'stats'
+
+            // section.appendChild(STATS);
         }
         const ABILITES = document.createElement('article');
         if (true) {
@@ -144,7 +177,7 @@ function init(json) {
 
             ABILITES.appendChild(H2);
         }
-        let count = 0;
+        count = 0;
         for (ability of abilities) {
             const P = document.createElement('p');
 
@@ -164,3 +197,43 @@ function init(json) {
     }
 }
 
+const RIGHT = document.createElement('a');
+const RIGHTARROW = document.createElement('img');
+const LEFT = document.createElement('a');
+const LEFTARROW = document.createElement('img');
+
+RIGHT.id = 'right'
+LEFT.id = 'left'
+
+let Rlink = '';
+let Llink = '';
+
+let fileNames = ['charmander', 'charmeleon', 'charizard']
+
+for(f in fileNames){
+    if(file == fileNames[f]){
+        if(f == 2){
+            Rlink = `${fileNames[0]}.html`
+        } else {
+            Rlink = `${fileNames[Number(f) + 1]}.html`
+        }
+        if(f == 0){
+            Llink = `${fileNames[2]}.html`
+        } else {
+            Llink = `${fileNames[f - 1]}.html`
+        }
+    }
+}
+
+RIGHTARROW.src = `images/arrow.png`;
+RIGHT.href = `${Rlink}`;
+LEFTARROW.src = `images/arrow.png`;
+LEFT.href = `${Llink}`;
+
+RIGHT.appendChild(RIGHTARROW);
+LEFT.appendChild(LEFTARROW);
+
+let arrow = document.getElementById('arrow');
+
+arrow.appendChild(RIGHT);
+arrow.appendChild(LEFT);

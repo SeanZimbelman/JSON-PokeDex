@@ -2,7 +2,8 @@ $TextColor: #000;
 $HColor: #f00;
 $BColor: #000;
 $Border: $BColor 2.5px solid;
-$Background: #fff;
+$Background: #fed8b1;
+$White: #fff;
 
 *,
 *::after,
@@ -16,6 +17,8 @@ $Background: #fff;
 body {
     color: $TextColor;
     background-color: $Background;
+    background-image: url("../images/pokeball.png");
+    background-repeat: repeat;
 }
 
 H1,
@@ -25,27 +28,39 @@ H3 {
     text-transform: uppercase;
 }
 
-#header{
+#header {
     width: 70%;
     margin: 0 auto;
     margin-top: 5px;
 
-    div#info{
+    div#info {
         border: $Border;
+        border-radius: 5px;
+        background-color: $White;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
-        p{
+        p {
             text-align: center;
             margin: auto 10px;
         }
     }
 
-    div#img{
-        width: 200px;
+    div#img {
+        width: 250px;
+        height: 250px;
+        padding: auto;
         margin: 0 auto;
         margin-top: 10px;
+        border: $Border;
+        border-radius: 50%;
+        background-color: $White;
+        img{
+            width: 200px;
+            margin: 25px;
+            position: relative;
+        }
     }
 }
 
@@ -54,16 +69,23 @@ H3 {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 
     #info {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         border: $Border;
+        background-color: $White;
         border-radius: 5px;
         width: 80%;
         margin: 0 auto;
         padding: 5px;
+
+        p {
+            height: fit-content;
+            margin: auto 0;
+        }
 
         #types {
             display: flex;
@@ -92,33 +114,72 @@ H3 {
         text-align: center;
         H2 {
             font-size: 50px;
+            border: $Border;
+            border-radius: 5px;
+            background-color: $White;
+            width: 75%;
+            margin: 10px auto;
+            padding: 5px;
         }
         div#div {
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
+            margin: 0 auto;
             flex-wrap: wrap;
-            div {
-                border: $Border;
-                border-radius: 5px;
-                padding: 5px;
-                H3 {
-                    text-decoration: underline;
-                    font-size: 30px;
-                }
-                p {
-                    font-size: 20px;
+            div#row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 75%;
+                div {
+                    width: 200px;
+                    border: $Border;
+                    border-radius: 5px;
+                    background-color: $White;
+                    padding: 5px;
+                    margin: 5px;
+                    H3 {
+                        text-decoration: underline;
+                        font-size: 30px;
+                    }
+                    p {
+                        font-size: 20px;
+                    }
                 }
             }
         }
     }
-    #abilites{
-        margin: 20px;
-        margin-bottom: 0;
+    #abilites {
+        border: $Border;
+        border-radius: 5px;
+        background-color: $White;
+        margin: 10px auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 400px;
+        width: 70%;
+        padding: 0 10px;
+        font-size: 1.5em;
+
+        p{
+            margin: auto 0;
+        }
+    }
+}
+
+div#arrow{
+    a{
+        width: 55px;
+        padding: auto;
+        height: 55px;
+        border: $Border;
+        border-radius: 5px;
+        background-color: $White;
+        display: inline-block;
+        img{
+            width: 50px;
+        }
     }
 }
 
