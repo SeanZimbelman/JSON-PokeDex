@@ -173,9 +173,9 @@ H3 {
 }
 
 div#arrow a {
-  width: 55px;
+  width: 105px;
   padding: auto;
-  height: 55px;
+  height: 105px;
   border: #000 2.5px solid;
   border-radius: 5px;
   background-color: #fff;
@@ -183,7 +183,23 @@ div#arrow a {
 }
 
 div#arrow a img {
-  width: 50px;
+  width: 100px;
+}
+
+div#arrow #left {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+}
+
+div#arrow #left img {
+  transform: rotate(180deg);
+}
+
+div#arrow #right {
+  position: absolute;
+  right: 5px;
+  top: 50%;
 }
 
 .normal {

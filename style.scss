@@ -170,16 +170,31 @@ H3 {
 
 div#arrow{
     a{
-        width: 55px;
+        width: 105px;
         padding: auto;
-        height: 55px;
+        height: 105px;
         border: $Border;
         border-radius: 5px;
         background-color: $White;
         display: inline-block;
         img{
-            width: 50px;
+            width: 100px;
         }
+    }
+
+    #left{
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        img{
+            transform: rotate(180deg);
+        }
+    }
+
+    #right{
+        position: absolute;
+        right: 5px;
+        top: 50%;
     }
 }
 
